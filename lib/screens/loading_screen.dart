@@ -18,7 +18,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         backgroundColor: Colors.black,
       ),
       body: Center(
-        child: TextButton(onPressed: () {}, child: Text('Get location')),
+        child: TextButton(onPressed: () {}, child: Text('Get location',style: TextStyle(fontSize: 40),)),
       ),
     );
   }
