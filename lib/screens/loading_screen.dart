@@ -10,7 +10,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getLocation();
     getPermission();
@@ -52,6 +51,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
               style: TextStyle(fontSize: 40),
             )),
       ),
-    );
+    );//1
   }
 }
