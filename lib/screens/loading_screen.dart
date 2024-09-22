@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
+//import 'package:geolocator/geolocator.dart';
 
 import '../location.dart';
 
@@ -47,6 +47,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
               style: TextStyle(fontSize: 40),
             )),
       ),
-    ); //12
+    ); //123
   }
 }
