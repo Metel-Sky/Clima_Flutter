@@ -47,6 +47,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
               style: TextStyle(fontSize: 40),
             )),
       ),
-    ); //123
+    );
   }
 }
