@@ -61,7 +61,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
               'Get location',
               style: TextStyle(fontSize: 40),
             )),
-      ),//rr
+      ),//rrgg
     );
   }
 }
