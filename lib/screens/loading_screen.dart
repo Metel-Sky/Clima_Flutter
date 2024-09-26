@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
 import '../services/location.dart';
+import 'dart:convert';
+
+const apiKey = 'cb717aa65605c59d6d0dbfc3a8b65fa7';
+const kyiv =
+    'https://api.openweathermap.org/data/2.5/weather?lat=50.4791&lon=30.5932&appid=$apiKey';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -9,35 +14,54 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+  late double latitude;
+  late double longitude;
+
   @override
   void initState() {
     super.initState();
     getLocation();
     getPermission();
-    getData();
   }
 
   void getLocation() async {
     Location location = Location();
     await location.getCurrentLocation();
-    print(location.longitude);
-    print(location.latitude);
+    longitude = location.longitude;
+    latitude = location.latitude;
+    print(longitude);
+    print(latitude);
+    getData();
   }
 
-
-  void getData () async{
-
-    Uri url = Uri.parse('https://samples.openweathermap.org/data/2.5/forecast?id=524901&appid=%3Cspan%20class=');
+  void getData() async {
+    Uri url = Uri.parse(
+        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
 
     Response response = await get(url);
 
-    if (response.statusCode == 200){
+    if (response.statusCode == 200) {
       String data = response.body;
-    }
-    else{
+      //print(data);
+
+      var decodeData = jsonDecode(data);
+
+      var weatherDescription = decodeData['weather'][0]['description'];
+      //weather[0].description
+      var temp = decodeData['main']['temp'];
+      //main.temp
+      var country = decodeData['sys']['country'];
+      //sys.country
+      var nameStreet = decodeData['name'];
+      //name
+
+      print(temp);
+      print(country);
+      print(nameStreet);
+      print(weatherDescription);
+    } else {
       print(response.statusCode);
     }
-
   }
 
   @override
@@ -61,7 +85,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
               'Get location',
               style: TextStyle(fontSize: 40),
             )),
-      ),
+      ),//1
     );
   }
 }
