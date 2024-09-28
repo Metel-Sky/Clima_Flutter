@@ -1,9 +1,9 @@
 import 'package:clima_flutter/screens/location_screen.dart';
-import 'package:clima_flutter/services/networking.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '../services/location.dart';
+import '../services/weather.dart';
 
 const apiKey = 'cb717aa65605c59d6d0dbfc3a8b65fa7';
 const kyiv =
@@ -11,12 +11,12 @@ const kyiv =
 
 class LoadingScreen extends StatefulWidget {
   @override
-  _LoadingScreenState createState() => _LoadingScreenState();
+  State<StatefulWidget> createState() {
+    return _LoadingScreenState();
+  }
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-  late double latitude;
-  late double longitude;
 
   @override
   void initState() {
@@ -26,19 +26,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getLocationData() async {
-    Location location = Location();
-    await location.getCurrentLocation();
 
-    longitude = location.longitude;
-    latitude = location.latitude;
-
-    NetworkHelper networkHelper = NetworkHelper(
-        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
-
-    var wetherData = await networkHelper.getData();
+    var weatherData = await WeatherModel().getLocationWeather();
     
     Navigator.push(context, MaterialPageRoute(builder: (context){
-      return LocationScreen();
+      return LocationScreen(locationWeather: weatherData,);
     }));
   }
 
