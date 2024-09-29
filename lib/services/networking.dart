@@ -13,6 +13,8 @@ class NetworkHelper {
 
     if (response.statusCode == 200) {
       String data = response.body;
+      print(response.statusCode);
+      //print(response.body);
 
       return jsonDecode(data);
     } else {
