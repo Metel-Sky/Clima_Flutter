@@ -93,7 +93,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       style: kTempTextStyle,
                     ),
                     Text(
-                      '☀️',
+                      '$weatherIcon',
                       style: kConditionTextStyle,
                     )
                   ],
@@ -102,7 +102,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: EdgeInsets.only(right: 15,bottom: 20),
                 child: Text(
-                  "It's 🍦 time in \n $cityName!",
+                  "$weatherMessage \n $cityName!",
                   textAlign: TextAlign.center,
                   style: kMessageTextStyle,
                 ),
