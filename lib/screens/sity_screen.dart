@@ -13,7 +13,10 @@ class _CityScreenState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('WEATHER',style: TextStyle(fontWeight: FontWeight.bold),),
+        title: Text(
+          'WEATHER',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
         backgroundColor: Colors.black,
       ),
@@ -29,28 +32,28 @@ class _CityScreenState extends State {
           child: Column(
             children: [
               //Align(
-                //alignment: Alignment.topLeft,
-                // child: TextButton(
-                //   onPressed: () {
-                //     Navigator.pop(context);
-                //   },
-                //   child: Icon(
-                //     //Icons.arrow_back_ios,
-                //     //size: 50.0,
-                //   ),
-                // ),
+              //alignment: Alignment.topLeft,
+              // child: TextButton(
+              //   onPressed: () {
+              //     Navigator.pop(context);
+              //   },
+              //   child: Icon(
+              //     //Icons.arrow_back_ios,
+              //     //size: 50.0,
+              //   ),
+              // ),
               //),
-
 
               Container(
                 padding: EdgeInsets.all(30.0),
                 child: TextField(
-                  focusNode: FocusNode(),
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Enter a city name',
-                  ),
-                ),
+                    style: TextStyle(
+                        color: Colors.grey[600], fontWeight: FontWeight.bold),
+                    decoration: kTextFieldInputDecoration,
+                onChanged: (value){
+                      print(value);
+                },),
+
               ),
               TextButton(
                 onPressed: () {
@@ -67,4 +70,4 @@ class _CityScreenState extends State {
       ),
     );
   }
-}//1
+} //1
