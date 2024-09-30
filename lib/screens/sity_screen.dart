@@ -13,8 +13,9 @@ class _CityScreenState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('WEATHER'),
+        title: Text('WEATHER',style: TextStyle(fontWeight: FontWeight.bold),),
         centerTitle: true,
+        backgroundColor: Colors.black,
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -27,21 +28,29 @@ class _CityScreenState extends State {
         child: SafeArea(
           child: Column(
             children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    size: 50.0,
+              //Align(
+                //alignment: Alignment.topLeft,
+                // child: TextButton(
+                //   onPressed: () {
+                //     Navigator.pop(context);
+                //   },
+                //   child: Icon(
+                //     //Icons.arrow_back_ios,
+                //     //size: 50.0,
+                //   ),
+                // ),
+              //),
+
+
+              Container(
+                padding: EdgeInsets.all(30.0),
+                child: TextField(
+                  focusNode: FocusNode(),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Enter a city name',
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.all(20.0),
-                child: null,
               ),
               TextButton(
                 onPressed: () {
@@ -58,4 +67,4 @@ class _CityScreenState extends State {
       ),
     );
   }
-}
+}//1

@@ -25,5 +25,5 @@ class Location {
 }
 
 void getPermission() async {
-  //LocationPermission permission = await Geolocator.requestPermission();
+  LocationPermission permission = await Geolocator.requestPermission();
 }
