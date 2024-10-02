@@ -76,8 +76,10 @@ class _LocationScreenState extends State<LocationScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TextButton(
-                    onPressed: () {
-                      var weatherData = weather.getLocationWeather();
+                    onPressed: () async {
+                      var weatherData = await weather.getLocationWeather();
+                      updateUI(weatherData);
+
                     },
                     child: Icon(
                       color: Colors.deepPurpleAccent,
@@ -87,7 +89,7 @@ class _LocationScreenState extends State<LocationScreen> {
                   ),
                   TextButton(
                     onPressed: () async {
-                     var tapedName = await Navigator.push(
+                      var tapedName = await Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) {
@@ -95,11 +97,11 @@ class _LocationScreenState extends State<LocationScreen> {
                           },
                         ),
                       );
-                     if(tapedName != null){
-                      var weatherData = await weather.getCityWeather(tapedName);
-                      updateUI(weatherData);
-
-                     }
+                      if (tapedName != null) {
+                        var weatherData =
+                            await weather.getCityWeather(tapedName);
+                        updateUI(weatherData);
+                      }
                     },
                     child: Icon(
                       color: Colors.deepPurpleAccent,

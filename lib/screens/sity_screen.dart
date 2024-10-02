@@ -39,7 +39,7 @@ class _CityScreenState extends State {
                     decoration: kTextFieldInputDecoration,
                 onChanged: (value){
                       cityName = value;
-                      print(cityName);
+
                 },),
 
               ),
