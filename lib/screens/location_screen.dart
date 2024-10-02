@@ -15,10 +15,10 @@ class LocationScreen extends StatefulWidget {
 class _LocationScreenState extends State<LocationScreen> {
   WeatherModel weather = WeatherModel();
 
-  late int temperature;
+  late var temperature;
   late String weatherIcon;
   late String cityName;
-  late String weatherMessage;
+  late var weatherMessage;
 
   @override
   void initState() {
@@ -86,8 +86,8 @@ class _LocationScreenState extends State<LocationScreen> {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {
-                      Navigator.push(
+                    onPressed: () async {
+                     var tapedName = await Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) {
@@ -95,6 +95,11 @@ class _LocationScreenState extends State<LocationScreen> {
                           },
                         ),
                       );
+                     if(tapedName != null){
+                      var weatherData = await weather.getCityWeather(tapedName);
+                      updateUI(weatherData);
+
+                     }
                     },
                     child: Icon(
                       color: Colors.deepPurpleAccent,
