@@ -31,19 +31,6 @@ class _CityScreenState extends State {
         child: SafeArea(
           child: Column(
             children: [
-              //Align(
-              //alignment: Alignment.topLeft,
-              // child: TextButton(
-              //   onPressed: () {
-              //     Navigator.pop(context);
-              //   },
-              //   child: Icon(
-              //     //Icons.arrow_back_ios,
-              //     //size: 50.0,
-              //   ),
-              // ),
-              //),
-
               Container(
                 padding: EdgeInsets.all(30.0),
                 child: TextField(
@@ -51,7 +38,8 @@ class _CityScreenState extends State {
                         color: Colors.grey[600], fontWeight: FontWeight.bold),
                     decoration: kTextFieldInputDecoration,
                 onChanged: (value){
-                      print(value);
+                      cityName = value;
+                      print(cityName);
                 },),
 
               ),
@@ -70,4 +58,4 @@ class _CityScreenState extends State {
       ),
     );
   }
-} //123
+} //1234
