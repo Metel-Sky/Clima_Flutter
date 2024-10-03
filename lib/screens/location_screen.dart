@@ -129,7 +129,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: EdgeInsets.only(right: 15, bottom: 20),
                 child: Text(
-                  "$weatherMessage  \n $cityName!",
+                  "$weatherMessage  \n ${cityName.toUpperCase()}!",
                   textAlign: TextAlign.center,
                   style: kMessageTextStyle,
                 ),
@@ -145,4 +145,4 @@ class _LocationScreenState extends State<LocationScreen> {
 // var weatherDescription = decodeData['weather'][0]['description']; //weather[0].description
 // var temp = decodeData['main']['temp']; //main.temp
 // var country = decodeData['sys']['country']; //sys.country
-// var nameStreet = decodeData['name']; //name
+// var nameStreet = decodeData['name']; //name t
