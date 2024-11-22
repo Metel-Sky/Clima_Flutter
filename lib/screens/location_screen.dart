@@ -145,4 +145,4 @@ class _LocationScreenState extends State<LocationScreen> {
 // var weatherDescription = decodeData['weather'][0]['description']; //weather[0].description
 // var temp = decodeData['main']['temp']; //main.temp
 // var country = decodeData['sys']['country']; //sys.country
-// var nameStreet = decodeData['name']; //name t
+// var nameStreet = decodeData['name']; //name tпрв
