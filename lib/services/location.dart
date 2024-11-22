@@ -21,7 +21,7 @@ class Location {
     } catch (e) {
       print(e);
     }
-  }
+  }//fd
 }
 
 void getPermission() async {
